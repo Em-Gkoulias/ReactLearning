@@ -5,7 +5,14 @@ import ReactDom from 'react-dom';
 // always return JSX
 
 function Greeting() {
-	return <h4>this is manolis and this is my first component</h4>;
+	return (
+		<div>
+			<Person />
+			<p>this is my message</p>
+		</div>
+	)
 }
+
+const Person = () => <h2>john doe</h2>;
 
 ReactDom.render(<Greeting />, document.getElementById('root'));
