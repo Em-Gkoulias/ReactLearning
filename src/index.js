@@ -1,18 +1,41 @@
-import React from 'react';
-import ReactDom from 'react-dom';
+import React from "react";
+import ReactDom from "react-dom";
 
 // stateless functional component
 // always return JSX
 
-function Greeting() {
-	return (
-		<div>
-			<Person />
-			<p>this is my message</p>
-		</div>
-	)
+function BookList() {
+  return (
+    <section>
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+    </section>
+  );
 }
 
-const Person = () => <h2>john doe</h2>;
+const Book = () => {
+  return (
+    <article>
+      <Image />
+      <Title />
+      <Author />
+    </article>
+  );
+};
 
-ReactDom.render(<Greeting />, document.getElementById('root'));
+const Image = () => (
+  <img
+    src="https://news.artnet.com/app/news-upload/2019/01/Cat-Photog-Feat-256x256.jpg"
+    alt=""
+  />
+);
+
+const Title = () => <h1>The Cat's revenge</h1>;
+
+const Author = () => <h4>Amelia Cat</h4>;
+
+ReactDom.render(<BookList />, document.getElementById("root"));
