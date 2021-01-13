@@ -49,7 +49,9 @@ const Book = ({ image, title, author }) => {
   };
 
   return (
-    <article className="book">
+    <article className="book" onMouseOver={() => {
+      console.log(title);
+    }}>
       <img src={image} alt="" />
       <h1
         onClick={() => {
