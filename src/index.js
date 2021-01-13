@@ -2,7 +2,20 @@ import React from "react";
 import ReactDom from "react-dom";
 
 // CSS
-import './index.css';
+import "./index.css";
+
+// setup vars
+const firstBook = {
+  image: "https://news.artnet.com/app/news-upload/2019/01/Cat-Photog-Feat-256x256.jpg",
+  title: "The Cat's revenge",
+  author: "Amelia Cat"
+};
+
+const secondBook = {
+  image: "https://avatarfiles.alphacoders.com/124/124420.jpg",
+  title: "KittyKat",
+  author: "Little Kitty",
+};
 
 // stateless functional component
 // always return JSX
@@ -10,35 +23,21 @@ import './index.css';
 function BookList() {
   return (
     <section className="bookList">
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+      <Book image={ firstBook.image } title={ firstBook.title } author={ firstBook.author } />
+      <Book image={ secondBook.image } title={secondBook.title} author={ secondBook.author } />
     </section>
   );
 }
 
-const Book = () => {
+const Book = (props) => {
+  console.log(props);
   return (
     <article className="book">
-      <Image />
-      <Title />
-      <Author />
+      <img src={ props.image } alt="" />
+      <h1>{ props.title }</h1>
+      <h4>{ props.author }</h4>
     </article>
   );
 };
-
-const Image = () => (
-  <img
-    src="https://news.artnet.com/app/news-upload/2019/01/Cat-Photog-Feat-256x256.jpg"
-    alt=""
-  />
-);
-
-const Title = () => <h1>The Cat's revenge</h1>;
-
-const Author = () => <h4>Amelia Cat</h4>;
 
 ReactDom.render(<BookList />, document.getElementById("root"));
