@@ -27,15 +27,14 @@ function BookList() {
   return (
     <section className="bookList">
       {books.map((book) => {
-        return <Book key={book.id} book={book}></Book>;
+        return <Book key={book.id} {...book}></Book>;
       })}
     </section>
   );
 }
 
 // destructuring props
-const Book = (props) => {
-  const { image, title, author } = props.book;
+const Book = ({ image, title, author }) => {
   return (
     <article className="book">
       <img src={image} alt="" />
