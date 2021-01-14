@@ -4,29 +4,12 @@ import ReactDom from "react-dom";
 // CSS
 import "./index.css";
 
-const books = [
-  {
-    id: 1,
-    image:
-      "https://news.artnet.com/app/news-upload/2019/01/Cat-Photog-Feat-256x256.jpg",
-    title: "The Cat's revenge",
-    author: "Amelia Cat",
-  },
-  {
-    id: 2,
-    image: "https://avatarfiles.alphacoders.com/124/124420.jpg",
-    title: "KittyKat",
-    author: "Little Kitty",
-  },
-];
-
-// stateless functional component
-// always return JSX
+import { data } from "./books.js";
 
 function BookList() {
   return (
     <section className="bookList">
-      {books.map((book) => {
+      {data.map((book) => {
         return <Book key={book.id} {...book}></Book>;
       })}
     </section>
@@ -49,9 +32,12 @@ const Book = ({ image, title, author }) => {
   };
 
   return (
-    <article className="book" onMouseOver={() => {
-      console.log(title);
-    }}>
+    <article
+      className="book"
+      onMouseOver={() => {
+        console.log(title);
+      }}
+    >
       <img src={image} alt="" />
       <h1
         onClick={() => {
